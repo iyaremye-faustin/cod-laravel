@@ -30,8 +30,18 @@ x-data="{open:false,menu:false, lokasi:false}">
               <a href="/about" class="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "> About </a>
               <a href="/newmovie" class="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "> Add Movie </a>
               @yield('allmovies')
+              @if(!Auth::check())
               <a href="/login" class="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "> Login </a>
+              <a href="/register" class="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "> Register </a>
+              @else
+              <a href="/logout" class="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-800 font-semibold hover:bg-yellow-500 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 "
+              onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+              > Logout </a>
+              @endif
             </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+            </form>
           </div>
         </div>
         <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">

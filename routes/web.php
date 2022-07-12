@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\Pages\PagesController::class,'homepage']);
-
-Route::get('/login',function(){ return view('login'); });
+Route::get('/dashboard', [\App\Http\Controllers\Pages\PagesController::class,'homepage'])->middleware('auth');
 Route::get('/detail',function(){ return view('detail'); });
-Route::get('/dashboard',function(){ return view('dashboard'); });
+//Route::get('/dashboard',function(){ return view('dashboard'); });
 Route::get('newmovie',[\App\Http\Controllers\Pages\PagesController::class,'newMoviePage'])->name('newmovie');
 Route::post('/movie/new',[\App\Http\Controllers\Pages\PagesController::class,'newMovie'])->name('movie.add');
 Route::get('/movies', [\App\Http\Controllers\Pages\PagesController::class,'getMovies'])->name('movies');

@@ -23,11 +23,6 @@
            <div class="mb-5 pb-1border-b-2 text-center font-base text-gray-700">
            <span>By <a class="text-blue-500" href="/">Our Movies</a></span>
           </div>
-          @if (session('status'))
-            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-                <span class="font-medium">{{ session('status') }}</span>
-            </div>
-          @endif
           @error('email')
           <p style="color:red">{{ $message }}</p>
           @enderror
@@ -76,7 +71,7 @@
               <div class="flex justify-between"><label class="block text-gray-500 font-bold my-4"><input type="checkbox"
                     class="leading-loose text-pink-600"> <span class="py-2 text-sm text-gray-600 leading-snug"> Remember
                     Me </span></label> <label class="block text-gray-500 font-bold my-4"><a
-                    href="/forgot-password"
+                    href="#"
                     class="cursor-pointer tracking-tighter text-black border-b-2 border-gray-200 hover:border-gray-400"><span>Forgot
                       Password?</span></a></label></div> <button type="submit" class="mt-3 text-lg font-semibold
                 bg-gray-800 w-full text-white rounded-lg
@@ -85,7 +80,6 @@
               </button>
             </div>
           </form>
-
         </div>
       </div>
     </div>
